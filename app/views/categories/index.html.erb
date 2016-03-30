@@ -1,0 +1,32 @@
+
+<h1>Listing Categories</h1>
+<div class="well">
+<div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.status %></td>
+        <td><%= image_tag category.image.url(:thumb), :style => 'border-radius: 50%' %></td>
+        <td><%= link_to 'Show', category, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_category_path(category), class: "btn btn-primary" %>
+        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'New Category', new_category_path, class: "btn btn-primary" %>

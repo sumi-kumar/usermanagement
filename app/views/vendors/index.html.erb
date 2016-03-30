@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vendors</h1>
+<div class="well">
+<div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Vendorname</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Zipcode</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendors.each do |vendor| %>
+      <tr>
+        <td><%= vendor.vendorname %></td>
+        <td><%= vendor.description %></td>
+        <td><%= vendor.address %></td>
+        <td><%= vendor.zipcode %></td>
+        <td><%= vendor.category %></td>
+        <td><%= image_tag vendor.image.url(:thumb), :style => 'border-radius: 50%' %></td>
+        <td>
+        <%= link_to 'Show', vendor, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_vendor_path(vendor), "btn btn-primary" %>
+        <%= link_to 'Destroy', vendor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+<%= link_to 'New Vendor', new_vendor_path, class: "btn btn-primary"  %>

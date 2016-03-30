@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Usermanagement</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<%if user_signed_in? %>
+			signed in as <%= current_user.email %>. not you?
+			<%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "btn btn-success pull-right navbar-btn" %>
+			<% else %>
+			<%= link_to "Sign up", new_user_registration_path, :class => "btn btn-success pull-right navbar-btn" %> or <%= link_to "Sign in",  new_user_session_path, :class => "btn btn-success pull-right navbar-btn" %>
+			<% end %>
+
+			
+			<%= link_to "users", users_path, :class => "btn btn-success pull-right navbar-btn" %>
+			<%= link_to "Categories", categories_path, :class => "btn btn-success pull-right navbar-btn" %>
+			<%= link_to "Vendors", vendors_path, :class => "btn btn-success pull-right navbar-btn" %>
+		</div>
+  </div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<%= yield %>
+
+</body>
+</html>

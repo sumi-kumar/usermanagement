@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reactions</h1>
+<div class="well align="center">
+  <div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Comment</th>
+      <th>Reaction type</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reactions.each do |reaction| %>
+      <tr>
+        <td><%= reaction.user_id %></td>
+        <td><%= reaction.comment_id %></td>
+        <td><%= reaction.reaction_type %></td>
+        <td>
+          <%= link_to 'Show', reaction, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_reaction_path(reaction), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', reaction, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<br>
+
+<%= link_to 'New Reaction', new_reaction_path, class: "btn btn-primary"  %>

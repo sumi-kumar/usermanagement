@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag @user.avatar.url(:medium), :style => 'border-radius: 50%' %>
+
+<p>
+  <strong>Vendorname:</strong>
+  <%= @vendor.vendorname %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vendor.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @vendor.address %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @vendor.zipcode %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @vendor.category %>
+</p>
+
+<%= link_to 'Edit', edit_vendor_path(@vendor), class: "btn btn-primary"  %> |
+<%= link_to 'Back', vendors_path, class: "btn btn-primary"  %>
